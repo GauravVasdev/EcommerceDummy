@@ -1,80 +1,49 @@
-import React from 'react';
+import React from "react";
 
-import Page500 from "./page500/Page500";
-
+// import Page500 from "./page500/Page500";
 
 export default class ErrorBoundary extends React.Component {
+  state = {
+    hasError: false,
 
-state = {
+    error: {},
 
-hasError: false,
+    info: {},
+  };
 
-error: {},
+  processError = () => {
+    this.setState({
+      hasError: false,
 
-info: {},
+      error: {},
 
-};
+      info: {},
+    });
+  };
 
-processError = () => {
+  componentDidCatch(error = {}, info = {}) {
+    this.setState({
+      hasError: true,
 
-this.setState({
+      error,
 
-hasError: false,
+      info,
+    });
+  }
 
-error: {},
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div id="nprogress-bar">
+          {/* <Page500
+            error={this.state.error}
+            info={this.state.info}
+            processError={this.processError}
+          /> */}
+        </div>
+      );
+    }
 
-info: {},
-
-})
-
-};
-
-componentDidCatch(error = {}, info = {}) {
-
-this.setState({
-
-hasError: true,
-
-error,
-
-info,
-
-});
-
-}
-
-
-
-
-render() {
-
-if (this.state.hasError) {
-
-return (
-
-<div id="nprogress-bar">
-
-<Page500
-
-error={this.state.error}
-
-info={this.state.info}
-
-processError={this.processError}
-
-/>
-
-</div>
-
-);
-
-}
-
-
-
-
-return this.props.children;
-
-}
-
+    return this.props.children;
+  }
 }

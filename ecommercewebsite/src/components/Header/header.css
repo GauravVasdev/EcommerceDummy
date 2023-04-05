@@ -1,0 +1,48 @@
+.navBarOuterDiv{
+    line-height: 70px;
+    cursor: pointer;
+    font-size: .93333333333333rem;
+    font-weight: 600;
+}
+
+.logo{
+   height:auto;
+   max-width:80px;
+}
+
+.navbar-collapse{
+    flex-grow: 0 !important;
+}
+
+.headerCartBtn{
+    border: 2px solid red;
+    padding: 0px 10px;
+    height:50px;
+    color: red;
+    font-size: 19.5px;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.active{
+    color:red !important;
+}
+
+a:hover {
+    color: red !important;
+}
+
+.mainOuterNav{
+    padding-bottom: 8px !important;
+    padding-top: 8px !important;
+}
+
+.nav-item{
+    padding: 0px 16px !important;
+}
+
+.logoLink{
+    padding-left: 30px;
+}
