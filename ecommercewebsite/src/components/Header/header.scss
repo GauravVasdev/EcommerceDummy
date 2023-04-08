@@ -1,0 +1,55 @@
+@import '../../main.scss';
+
+.mainOuterNav{
+    background-color: white;
+    .logo{
+        max-width:80px;
+     }
+
+    .navBarOuterDiv{
+        line-height: 70px;
+        cursor: pointer;
+        font-size: .855333rem;
+        font-weight: $fontWeight;
+        flex-grow: 0 !important;
+
+        .active{
+            color:red !important;
+        }
+        
+        a:hover {
+            color: red !important;
+        }
+
+        .nav-item{
+            box-sizing: border-box;
+            padding:0 1.3rem;
+        }
+        .headerCartBtn{
+            border: 2px solid red;
+            padding-top: 0.1%;
+            padding-bottom: 0.2%;
+            padding-left: 1%;
+            padding-right: 0.3%;
+            height:60px;
+            color: $color;
+            font-size: 1rem;
+            font-weight: 600;
+            .abc{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 0px 10px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .nav-item{
+        padding:0px !important;
+        .nav-link{
+            padding-right:0.6rem !important;
+        } 
+    }
+  }

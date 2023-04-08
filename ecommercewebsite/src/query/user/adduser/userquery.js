@@ -10,6 +10,8 @@ export const useCreateUser = () => {
   const cache = useQueryClient();
   return useMutation("createUser", createUser, {
     onSuccess: (res, variables, context) => {
+      toaster("success", "User Saved Sucessfully !!");
+      debugger
     //   cache.invalidateQueries("getEmployeeAttendanceStatus");
     },
     onError: (error) => {

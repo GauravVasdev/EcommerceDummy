@@ -1,0 +1,81 @@
+@import '../../main.scss';
+
+.contactMainOuterDiv{
+    color: $textColor;
+    .rightQueryDiv{
+        padding-top: 70px;
+        input{
+            background-color: #fafafa;
+        }
+        .formOuterElement{
+            background-color: white;
+            padding: 60px 35px;
+            border: 2px solid $inputBorderColor;
+            border-radius: 4px;
+        }
+        h3{
+            padding-bottom: 10px;
+            font-weight: $fontWeight;
+        }
+        textarea{
+            width: 100%;
+            height: 100px;
+            padding: 12px 20px;
+            box-sizing: border-box;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            margin-top: 10px;
+            padding:10px;
+            background-color: #fafafa;
+        }
+    
+        textarea:focus{
+            border:1px solid red;
+            outline:thin;
+        }
+        button{
+            font-weight: 400;
+        }
+    }
+    .contactLeftDiv{
+        padding-top: 180px;
+        padding-left: 50px;
+        padding-right:60px;
+        h1{
+            font-weight: $fontWeight;
+            // color: $textColor;
+        }
+        .contactHeading{
+            font-weight: 700;
+            font-size: 60px;
+            padding-bottom: 15px;
+        }
+
+        .contactParagraph{
+            color:#808285;
+            padding-bottom: 25px;
+        }
+
+        .element-divider{
+            border-top: 2px solid red;
+            width: 20%;
+        }
+
+        .element-icon-list{
+            color:#808285;
+            padding-top: 35px;
+             .element-icon{
+                padding-bottom: 15px;
+                i{
+                    color: $color;
+                    font-size: 1.12rem;
+                }
+
+                span{
+                    display: inline-block;
+                    padding-left: 15px;
+                }
+            }
+        }
+    }
+}

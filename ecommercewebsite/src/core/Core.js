@@ -1,15 +1,11 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from '../components/Home/Home'
-import Men from '../components/Men/Men';
-import Women from '../components/Women/Women';
-import About from '../components/About/About';
 import Header from '../components/Header/Header';
-import MyAccount from '../components/MyAccount/MyAccount';
-import LostPassword from '../components/LostPassword/LostPassword';
-import Contact from '../components/Contact/Contact';
 import ErrorBoundary from './ErrorBoundary';
 import { QueryClient, QueryClientProvider } from "react-query";
+import {ReactQueryDevtools} from  "react-query/devtools"
+import { ToastContainer } from 'react-toastify';
+import routes from '../routes'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -25,19 +21,33 @@ const core = () => {
     <ErrorBoundary>
     <BrowserRouter>
         <Header />
+        <Suspense>
         <Routes>
-            <Route path="/" element={<Home />} />
+            {/* <Route path="/" element={<Home />} />
             <Route path="/men" element={<Men />} />
             <Route path="/women" element={<Women />} />
             <Route path="/about" element={<About />} />
             <Route path="/myaccount" element={<MyAccount />} />
             <Route path="/lostpassword" element={<LostPassword />} />
-            <Route path="/contact" element={<Contact />} />
+            <Route path="/contact" element={<Contact />} /> */}
+            {
+              routes.map((route,index)=> {
+                return(
+                  route.element && (
+                    <Route key={index} name = {route.name} path={route.path} element={ <route.element />} />
+                  )
+                )
+              })
+            }
         </Routes>
+        </Suspense>
     </BrowserRouter>
     </ErrorBoundary>
+    {/* <ReactQueryDevtools/> */}
+    <ToastContainer />
     </QueryClientProvider>
   )
 }
 
-export default core
+
+export default React.memo(core)

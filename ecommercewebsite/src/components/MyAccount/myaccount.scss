@@ -1,0 +1,53 @@
+@import "../../main.scss";
+
+.outerdiv {
+  background-color: #f4f5f6;
+  height: auto;
+  padding-left: 2.2rem;
+  padding-right: 2.2rem;
+  margin: auto;
+  font-weight: 600;
+
+  input:focus {
+    outline: none;
+  }
+
+  h2 {
+    font-size: 1.425rem;
+    font-weight: inherit;
+    line-height: 2;
+    margin-bottom: 20px;
+  }
+
+  .formclass {
+    border: 1px solid #ccc;
+    padding: 2.5rem;
+    border-radius: 5px;
+  }
+
+  .requiredLabel {
+    display: block;
+  }
+
+  .formclass p {
+    font-weight: 400;
+    color: #212529;
+    line-height: 1.85714285714286;
+  }
+
+  .lostPasswordLink {
+    color: $color;
+    display: inline-block;
+    margin-top: 15px;
+    text-decoration: none;
+    line-height: 1.85714285714286;
+    font-weight: 400;
+  }
+
+  input[type="checkbox"] {
+    width: 3%;
+    padding: 0px;
+    margin-right: 3px;
+    display: inline-block;
+  }
+}

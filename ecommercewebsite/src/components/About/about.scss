@@ -1,0 +1,113 @@
+@import '../../main.scss';
+
+.AboutOuterMainDiv{
+    text-align: center;
+    .creative-team-img-outerdiv{
+        color: $textColor;
+        h5{
+            font-weight: 600;
+            padding-top: 1.3rem;
+        }
+        .creative-team-img{
+            width: 90%;
+        }
+    }
+
+    .about-element-main-heading{
+        height: 325px;
+        display:flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+
+        h1{
+            font-weight: $fontWeight;
+            color: $textColor;
+            padding-bottom: 1rem;
+        }
+        .about-element-main-heading-content{
+            width: 47%;
+        }
+    }
+
+    .about-element-info{
+        padding-left: 1.5rem;
+        padding-top: 100px;
+        padding-right:1.5%;
+        padding-bottom: 100px;
+        p{
+            color: $textColor;
+            font-size: 15px;
+            line-height: 1.9;
+            text-align: justify;
+        }
+        .col-sm-6{
+            padding-right: 100px;
+            padding-top: 25px;
+            color: $textColor;
+            h2{
+                font-weight: $fontWeight;
+                font-size: 35px;
+                padding-bottom: 20px;
+            }
+        }
+            .col-sm-3{
+                .eros-element{
+                    padding-bottom: 20px;
+                    padding-right: 15px;
+                }
+                .proident-element{
+                    padding-bottom: 20px;
+                    padding-right: 15px;
+                    padding-left:0px;
+                }
+                i{
+                    font-size: 1.5rem;
+                    padding-bottom: 10px;
+                }
+                h5{
+                    font-weight: 595;
+                    color: #415161;
+                }
+        }
+    }
+    .best-offer-element{
+        box-sizing: border-box !important;
+        background-color: $color;
+        padding: 50px;
+        color:white;
+        i{
+            color: white
+        }
+        h2,button{
+            margin: 0px;
+        }
+        .col-sm-9, .col-sm-3{
+            display: flex;
+            align-items: center;
+        }
+        button{
+            i{
+                padding-left: 1rem;
+            }
+            font-weight: 400;
+            font-size: 0.9333rem;
+            border: 2px solid white;
+        }
+    }
+
+    .creative-team-element{
+        text-align: center;
+        padding-top: 8rem;
+        padding-bottom: 4rem;
+        h2{
+            padding-bottom: 1rem;
+        }
+        .element-divider{
+            display: inline-block;
+            width: 7%;
+            border-top: 3px solid $color;
+        }
+    }
+}

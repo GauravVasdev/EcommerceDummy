@@ -1,25 +1,36 @@
-import React, { useEffect } from "react";
-import "./myaccount.css";
+import React from "react";
+import "./myaccount.scss";
 import { NavLink } from "react-router-dom";
 import { useCreateUser } from "../../query/user/adduser/userquery";
+import { useState } from "react";
 
 const MyAccount = () => {
+
+    const [registerFormData, setRegisterFormData] = useState({
+      "username":"",
+      "email":"",
+      "password":""
+    })
+
     const {mutateAsync} = useCreateUser()
-    useEffect(() => {
-        debugger
-        mutateAsync({
-            "username": "gauravVasdev",
-            "email": "gauravvasdev@gmail.com",
-            "password": "gaurav123"
-          })
-        debugger
-      },[]);
+
+    const registerBtn = (e) => {
+      e.preventDefault();
+      mutateAsync(registerFormData)
+      setRegisterFormData({
+        "username":"",
+        "email":"",
+        "password":""
+      })
+      debugger
+    }
+
   return (
     <div className="row outerdiv">
-      <div className="col-sm-6 loginOuterDiv mt-5 ml-3">
+      <div className="col-lg-6 loginOuterDiv mt-5 ml-3">
         <h2>Login</h2>
         <form className="formclass">
-          <label for="unameoreaddress" className="requiredLabel">
+          <label htmlFor="unameoreaddress" className="requiredLabel">
             Username or email address
           </label>
           <input
@@ -38,12 +49,11 @@ const MyAccount = () => {
             name="rememberme"
             value="rememberme"
           />
-          <label for="rememberme"> Remember me</label>
+          <label htmlFor="rememberme"> Remember me</label>
           <button
             type="submit"
             name="login"
             value="login"
-            className="registerandloginandresetBtn"
           >
             LOGIN
           </button>
@@ -52,21 +62,21 @@ const MyAccount = () => {
           </NavLink>
         </form>
       </div>
-      <div className="registerOuterDiv col-sm-6 mt-5 ml-3">
+      <div className="registerOuterDiv col-lg-6 mt-5 ml-3">
         <h2>Register</h2>
         <form className="formclass">
-          <label for="uname" className="requiredLabel">
+          <label htmlFor="uname" className="requiredLabel">
             Username
           </label>
-          <input type="text" id="uname" name="uname" required />
-          <label for="eaddress" className="requiredLabel">
+          <input type="text" id="uname" name="uname" value={registerFormData.username} onChange={e => setRegisterFormData({...registerFormData,"username":e.target.value})} required />
+          <label htmlFor="eaddress" className="requiredLabel">
             Email address
           </label>
-          <input type="text" id="eaddress" name="eaddress" required />
-          <label for="password" className="requiredLabel">
+          <input type="text" id="eaddress" name="eaddress" value={registerFormData.email} onChange={e => setRegisterFormData({...registerFormData,"email":e.target.value})} required />
+          <label htmlFor="password" className="requiredLabel">
             Password
           </label>
-          <input type="password" id="password" name="password" required />
+          <input type="password" id="password" name="password" value={registerFormData.password} onChange={e => setRegisterFormData({...registerFormData,"password":e.target.value})} required />
           <p>
             Your personal data will be used to support your experience
             throughout this website, to manage access to your account, and for
@@ -76,8 +86,8 @@ const MyAccount = () => {
           <button
             type="submit"
             name="register"
-            value="register"
-            className="registerandloginandresetBtn"
+            value="register" 
+             onClick={registerBtn}
           >
             REGISTER
           </button>

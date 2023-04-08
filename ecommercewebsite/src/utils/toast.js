@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export const toaster = async (type, comment) => {
+  debugger
   if (type === "error") {
     return await toast.error(comment, {
       position: "top-right",

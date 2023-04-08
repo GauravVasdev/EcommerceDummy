@@ -1,6 +1,6 @@
 import Core from "./core/Core";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import "./main.css";
+import "./main.scss";
 
 
 function App() {

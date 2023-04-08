@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Women = () => {
+const Shirt = () => {
   return (
     <div>
-      Women
+      Shirt
     </div>
   )
 }
 
-export default Women
+export default Shirt
