@@ -1,9 +1,18 @@
-import React from 'react'
-import {Link, NavLink} from "react-router-dom"
+import React, { useEffect } from 'react'
+import {Link, NavLink, useLocation} from "react-router-dom"
 import './header.scss'
+import { Button, Col, Container, Form, Nav, NavDropdown, Navbar, Row, Stack } from 'react-bootstrap'
+import { useRecoilState } from 'recoil'
+import { formState } from '../../recoils/Store'
 
-const header = () => {
+
+
+const Header = () => {
+  const [isHeaderPresent, setIsHeaderPresent]= useRecoilState(formState);
+  console.log(window.location);
   return (
+    <> 
+    {isHeaderPresent &&
     <nav className="navbar navbar-expand-md mainOuterNav">
       <div className="container-fluid ">
           <NavLink className="navbar-brand logoLink" to="#">
@@ -30,23 +39,23 @@ const header = () => {
                 <NavLink className="nav-link" to="/contact">CONTACT</NavLink>
               </li>
               <li className="nav-item dropdown">
-                <Link className="nav-link dropdown-toggle" to="#" role="button" data-bs-toggle="dropdown">Account</Link>
+                <Link className="nav-link dropdown-toggle" to="#" role="button" data-bs-toggle="dropdown">ACCOUNT</Link>
                 <ul className="dropdown-menu">
                   <li><NavLink className="dropdown-item" to="/myaccount">MY ACCOUNT</NavLink></li>
                   <li><NavLink className="dropdown-item" to="/cart">CART</NavLink></li>
                 </ul>
               </li>
+              <li>
+                <div className = "headerCartBtn">
+                  <span>₹0.00<i className="fa-solid fa-cart-plus"></i></span>
+                </div>
+              </li>
             </ul>
-            <div className = "headerCartBtn">
-              <div className="abc">
-                <span>₹0.00</span>
-                <i className="fa-solid fa-cart-plus"></i>
-              </div>
-            </div>
           </div>
       </div>
-    </nav>
+    </nav>}
+    </>
   )
 }
 
-export default header
+export default Header

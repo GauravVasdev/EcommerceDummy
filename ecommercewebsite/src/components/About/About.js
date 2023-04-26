@@ -1,5 +1,6 @@
 import React from "react";
 import "./about.scss";
+import { Button } from "react-bootstrap";
 
 const About = () => {
   return (
@@ -76,7 +77,7 @@ const About = () => {
                 <h2>Get Best Offers On Customized Designs!</h2>
               </div>
               <div className="col-sm-3">
-                <button> GET STARTED <i aria-hidden="true" class="fas fa-angle-right"></i></button>
+                <Button variant="outline-danger"> GET STARTED <i aria-hidden="true" class="fas fa-angle-right"></i></Button>
               </div>
             </div>  
       </div>

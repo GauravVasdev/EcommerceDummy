@@ -1,0 +1,30 @@
+@import "../../main.scss";
+
+.shirt-element-outer-div {
+  // background-color: white;
+  color: white;
+  .heading-outer-div {
+    background-color: $color;
+  }
+  .tshirt-images-outer-element {
+    .card-body {
+      padding: 2rem 0px;
+      background-color: #f4f5f6;
+      .gender-element {
+        color: black;
+      }
+      .card-text {
+        Button {
+          font-weight: 700;
+          width: 60%;
+          padding: 5px 0px;
+        }
+      }
+      .card-title {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: $textColor;
+      }
+    }
+  }
+}

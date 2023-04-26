@@ -1,0 +1,111 @@
+@import '../../main.scss';
+
+.home-main-outer-element{
+    h3,h2,h6{
+        font-weight: 600;
+        color: $textColor;
+    }
+    .deal-of-the-day-outer-element{
+        height: 100vh;
+        .background-image-element{
+            height: 100%;
+            background-image: url('../../../public/images/backGroundImage.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment:fixed;
+            position: relative;
+            .content-on-bg-element{
+                color: $textColor;
+                position: absolute;
+                left: 15%;
+                top: 50%;
+                transform: translate(-15%,-50%);
+            }
+        }
+    }
+
+
+    .featured-product-images{
+        padding: 4rem 1rem;
+        .card-body{
+            padding: 2rem 0px;
+            background-color: #f4f5f6;
+            .card-text{
+                Button{
+                    font-weight: 700;
+                    width: 60%;
+                    padding: 5px 0px;
+                }
+            }
+            .card-title{
+                font-size: 0.9rem;
+                font-weight: 600;
+                color: $textColor
+            }
+        }
+    }
+    .featured-product{
+        padding-top: 7rem;
+        text-align: center;
+    }
+    .element-divider-container{
+        display: flex;
+        justify-content: center;
+        .featured-product-divider{
+            width: 6%;
+            border-top: 3.2px solid red;
+        }
+    }
+    .home-left-side-element{
+        color: $textColor;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+        .horizontal-divider{
+            border-top: 3px solid red;;
+            width: 10%;
+            padding-bottom: 2.2rem;
+        }
+        h1{
+            font-weight: 900;
+        }
+        h5{
+            font-weight: 600;
+            padding-bottom: 1rem;
+        }
+        .btn-outline-danger{
+            background-color: #ff5151;
+            border: 2px solid #ff5151;
+            padding:0.5rem 2.6rem;
+            color:white;
+            i{
+                color:inherit;
+                font-size: 0.9rem;
+            }
+        }
+        .btn,btn-outline-danger :hover{
+            text-decoration: none;
+            box-shadow: none;
+        }
+    }
+
+    .home-right-side-element{
+        img{
+            max-width: 100%;
+        }
+    }
+
+    .home-page-style-element{
+       text-align: center;
+       display: flex;
+       justify-content: center;
+       margin-top: 140px;
+       .row-page-style-element{
+            width: 95%;
+            .card-body{
+                background-color: #f4f5f6;
+            }
+       }
+    }
+}

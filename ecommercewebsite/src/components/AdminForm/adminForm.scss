@@ -1,0 +1,22 @@
+@import '../../main.scss';
+
+.adminform-main-outer-div{
+    width: 60%;
+    margin: auto;
+    h3{
+        text-align: center;
+        color:rgb(46, 44, 44);
+        padding: 20px;
+        text-decoration: underline;
+    }
+    .custom-form-element{
+        border: 2px solid rgb(235, 229, 229);
+        padding: 20px;
+        .radio-btn-element{
+            .form-check{
+                display: inline-block;
+            }
+        }
+    }
+
+}

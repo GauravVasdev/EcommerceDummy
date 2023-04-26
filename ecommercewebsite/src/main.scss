@@ -15,7 +15,8 @@ body{
 }
 
 h1{
-    font-size: 3.7rem;
+    // font-size: 3.7rem;
+    font-size: calc(1.3rem + 3vw);
 }
 
 h2{
@@ -29,19 +30,16 @@ input{
     display: inline-block; 
     border: .2px solid $inputBorderColor;
 }
-button{
-        color: white;
-        border-color: $color;
-        background-color:$color; 
-        line-height: 1;
-        cursor: pointer;
-        font-weight: 700;
-        box-shadow: none;
-        font-size: 100%;
-        border-radius: 5px;
-        padding : 13px 40px;
-        margin-top: 10px;
-        display: block;
+.btn-outline-danger{
+    background-color: #ff5151;
+    border: 2px solid #ff5151;
+    padding:0.5rem 2.6rem;
+    color:white;
+}
+
+.btn,.btn-outline-danger :hover{
+    text-decoration: none;
+    box-shadow: none;
 }
 
 label{
@@ -57,7 +55,3 @@ label:after {
 i{
     color: $color;
 }
-
-// h5{
-//     // font-size: 1rem;
-// }

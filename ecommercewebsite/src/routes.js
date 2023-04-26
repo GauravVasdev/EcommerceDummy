@@ -7,7 +7,9 @@ const Shirt = React.lazy(() => import("./components/Shirt/Shirt"));
 const MyAccount = React.lazy(() => import("./components/MyAccount/MyAccount"));
 const LostPassword = React.lazy(() => import("./components/LostPassword/LostPassword"));
 const UpdatePassword = React.lazy(() => import("./components/UpdatePassword/UpdatePassword"))
-const Cart = React.lazy(() => import("./components/Cart/Cart"))
+const Cart = React.lazy(() => import("./components/Cart/Cart"));
+const AdminForm = React.lazy(() => import("./components/AdminForm/AdminForm"));
+const AdminTable = React.lazy(() => import("./components/AdminTable/AdminTable"));
 
 const routes = [
   { path: "/", name: "Home", element: Home },
@@ -17,7 +19,10 @@ const routes = [
   { path: "/myaccount", name: "MyAccount", element: MyAccount },
   { path: "/lostpassword", name: "LostPassword", element: LostPassword },
   { path: "/updatepassword", name: "UpdatePassword", element: UpdatePassword },
-  { path: "/cart", name: "Cart", element: Cart }
+  { path: "/cart", name: "Cart", element: Cart },
+  { path: "/admin-form", name: "AdminForm", element: AdminForm },
+  { path: "/admin-table", name: "AdminTable", element: AdminTable },
+  { path: "/admin-form/:id", name: "AdminForm", element: AdminForm },
 ];
 
 export default routes;

@@ -1,5 +1,6 @@
 import React from 'react'
 import './contact.scss'
+import { Button } from 'react-bootstrap'
 
 const Contact = () => {
   return (
@@ -31,7 +32,7 @@ const Contact = () => {
               <input type="text" placeholder='Your Email'/>
               <input type="text" placeholder='Subject'/>
               <textarea placeholder='Message'></textarea>
-              <button type="submit">SEND MESSAGE</button>
+              <Button  variant="outline-danger" className='mt-4' type="submit">SEND MESSAGE</Button>
           </form>
         </div>
       </div>

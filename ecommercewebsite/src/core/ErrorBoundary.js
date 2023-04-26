@@ -40,6 +40,7 @@ export default class ErrorBoundary extends React.Component {
             info={this.state.info}
             processError={this.processError}
           /> */}
+          Something went wrong;
         </div>
       );
     }

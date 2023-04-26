@@ -1,8 +1,9 @@
 import React from "react";
 import "./myaccount.scss";
 import { NavLink } from "react-router-dom";
-import { useCreateUser } from "../../query/user/adduser/userquery";
+import { useCreateUser, useLoginUser } from "../../query/user/adduser/userquery";
 import { useState } from "react";
+import { Button } from "react-bootstrap";
 
 const MyAccount = () => {
 
@@ -12,17 +13,33 @@ const MyAccount = () => {
       "password":""
     })
 
-    const {mutateAsync} = useCreateUser()
+    const [loginFormData, setLoginFormData] = useState({
+      "username":"",
+      "password":""
+    })
 
-    const registerBtn = (e) => {
-      e.preventDefault();
-      mutateAsync(registerFormData)
-      setRegisterFormData({
-        "username":"",
-        "email":"",
-        "password":""
-      })
-      debugger
+    const {mutateAsync: createMutateAsync} = useCreateUser()
+
+    const {mutateAsync: loginMutateAsync} = useLoginUser()
+
+    const registerLoginBtn = (e, action) => {
+      e.preventDefault()
+      if(action==="register"){
+        createMutateAsync(registerFormData)
+        setRegisterFormData({
+          "username":"",
+          "email":"",
+          "password":""
+        })  }
+      else{
+        loginMutateAsync(loginFormData)
+        setLoginFormData({
+          "username":"",
+          "password":""
+        }) 
+      }
+       
+      // debugger
     }
 
   return (
@@ -37,12 +54,16 @@ const MyAccount = () => {
             type="text"
             id="unameoreaddress"
             name="unameoreaddress"
+            value={loginFormData.username}
+            onChange={e => setLoginFormData({...loginFormData,"username":e.target.value })}
             required
           />
           <label for="password" className="requiredLabel">
             Password
           </label>
-          <input type="password" id="password" name="password" required />
+          <input type="password" id="password" name="password" required 
+          value={loginFormData.password}
+          onChange={e => setLoginFormData({...loginFormData, "password":e.target.value})}/>
           <input
             type="checkbox"
             id="rememberme"
@@ -50,13 +71,15 @@ const MyAccount = () => {
             value="rememberme"
           />
           <label htmlFor="rememberme"> Remember me</label>
-          <button
+          <Button variant="outline-danger"
+            className="login-btn mt-3"
             type="submit"
             name="login"
             value="login"
+            onClick={e => registerLoginBtn(e,"login")}
           >
             LOGIN
-          </button>
+          </Button>
           <NavLink to="/lostpassword" className="lostPasswordLink">
             Lost your password ?
           </NavLink>
@@ -83,14 +106,14 @@ const MyAccount = () => {
             other purposes described in our{" "}
             <span style={{ color: "red" }}>privacy policy.</span>
           </p>
-          <button
+          <Button variant="outline-danger"
             type="submit"
             name="register"
             value="register" 
-             onClick={registerBtn}
+             onClick={e => registerLoginBtn(e, "register")}
           >
             REGISTER
-          </button>
+          </Button>
         </form>
       </div>
     </div>

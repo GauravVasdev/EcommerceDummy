@@ -1,5 +1,6 @@
 import React from 'react'
 import './lostpassword.scss'
+import { Button } from 'react-bootstrap'
 
 const LostPassword = () => {
   return (
@@ -10,7 +11,7 @@ const LostPassword = () => {
         <form className="formclass border border-0">
                 <label htmlFor="resetpasswrd" className="requiredLabel">Username or email</label>
                 <input type="text" id="resetpasswrd" name="resetpasswrd" className='w-50' required/>
-                <button type="submit" name="resetpassword" value="resetpassword" className="registerandloginandresetBtn">RESET PASSWORD</button>
+                <Button variant="outline-danger" type="submit" name="resetpassword" value="resetpassword" className="mt-3">RESET PASSWORD</Button>
             </form>
     </div>
   )

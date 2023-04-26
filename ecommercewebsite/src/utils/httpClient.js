@@ -1,17 +1,38 @@
 import axios from "axios";
 
-import config from "./config";
+import { config, cardConfig } from "./config";
 
-const http = (headers, anonymous) => {
+export const http = (headers, anonymous) => {
+  const token = null;
+  const defaultHeader = {
+    Authorization : `Bearer ${token}`  
+  }
   return axios.create({
     baseURL: config.BASE_API_URL,
 
     timeout: config.TIMEOUT,
 
     headers: {
+      ...defaultHeader,
       ...headers,
     },
   });
 };
 
-export default http;
+export const cardHttp = (headers, anonymous) => {
+  const token = null;
+  const defaultHeader = {
+    Authorization : `Bearer ${token}`  
+  }
+  return axios.create({
+    baseURL: cardConfig.BASE_API_URL,
+
+    timeout: cardConfig.TIMEOUT,
+
+    headers: {
+      ...defaultHeader,
+      ...headers,
+    },
+  });
+};
+
