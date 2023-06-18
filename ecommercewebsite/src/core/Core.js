@@ -16,38 +16,18 @@ const queryClient = new QueryClient({
   },
 });
 
-const Core = () => {
+const Core = (props) => {
   console.log(window.location.pathname);
   return (
     <QueryClientProvider client={queryClient}>
     <BrowserRouter>
     <ErrorBoundary>
     <RecoilRoot>
-        <Header />
-        <Suspense>
-        <Routes>
-            {/* <Route path="/" element={<Home />} />
-            <Route path="/men" element={<Men />} />
-            <Route path="/women" element={<Women />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/myaccount" element={<MyAccount />} />
-            <Route path="/lostpassword" element={<LostPassword />} />
-            <Route path="/contact" element={<Contact />} /> */}
-            {
-              routes.map((route,index)=> {
-                return(
-                  route.element && (
-                    <Route key={index} name = {route.name} path={route.path} element={ <route.element />} />
-                  )
-                )
-              })
-            }
-        </Routes>
-        </Suspense>
+          {props.children}
         </RecoilRoot>
         </ErrorBoundary>
     </BrowserRouter>
-    {/* <ReactQueryDevtools/> */}
+    <ReactQueryDevtools/>
     <ToastContainer />
     </QueryClientProvider>
   )

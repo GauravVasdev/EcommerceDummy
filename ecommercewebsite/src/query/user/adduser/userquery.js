@@ -1,11 +1,20 @@
 import { toaster } from "../../../utils/toast";
 
 import { useQuery, useMutation, useQueryClient } from "react-query";
+// import {
+//   useRecoilState,
+//   useSetRecoilState
+// } from 'recoil';
+// import {tokenState} from '../../recoils/Store'
 
 import {
   createCard,
   createUser, deleteCard, getCard, getCardByUuid, loginUser, updateCard
 } from "./userapi";
+
+import jwt_decode from 'jwt-decode'
+import { tokenState } from "../../../recoils/Store";
+import { useRecoilState, useSetRecoilState } from "recoil";
 
 export const useCreateUser = () => {
   const cache = useQueryClient();
@@ -26,7 +35,7 @@ export const useLoginUser = () => {
     onSuccess: (res, variables, context) => {
       toaster("success", "User Login Successfully !!");
       localStorage.setItem("token",res.token_value);
-      console.log()
+      // console.log(token);
     },
     onError: (error) => {
       toaster("error", error.message);
@@ -38,7 +47,10 @@ export const useCreateCard = () => {
   const cache = useQueryClient();
   return useMutation("createCard", createCard, {
     onSuccess: (res, variables, context) => {
-      cache.invalidateQueries('getCard');
+      // cache.invalidateQueries('getCard');
+      debugger;
+      console.log("Variables",variables);
+      cache.setQueryData(['getCard', { id: variables.id }], res)
       toaster("success", "Card created Successfully !!");
       console.log()
     },

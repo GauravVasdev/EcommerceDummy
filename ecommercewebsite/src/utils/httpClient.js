@@ -3,7 +3,8 @@ import axios from "axios";
 import { config, cardConfig } from "./config";
 
 export const http = (headers, anonymous) => {
-  const token = null;
+  const token = localStorage.getItem('token');
+  console.log("Token in http : ",token);
   const defaultHeader = {
     Authorization : `Bearer ${token}`  
   }
@@ -20,7 +21,8 @@ export const http = (headers, anonymous) => {
 };
 
 export const cardHttp = (headers, anonymous) => {
-  const token = null;
+  const token = localStorage.getItem('token');
+  console.log("Token in http : ",token);
   const defaultHeader = {
     Authorization : `Bearer ${token}`  
   }

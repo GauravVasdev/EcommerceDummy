@@ -20,9 +20,6 @@ const routes = [
   { path: "/lostpassword", name: "LostPassword", element: LostPassword },
   { path: "/updatepassword", name: "UpdatePassword", element: UpdatePassword },
   { path: "/cart", name: "Cart", element: Cart },
-  { path: "/admin-form", name: "AdminForm", element: AdminForm },
-  { path: "/admin-table", name: "AdminTable", element: AdminTable },
-  { path: "/admin-form/:id", name: "AdminForm", element: AdminForm },
 ];
 
 export default routes;

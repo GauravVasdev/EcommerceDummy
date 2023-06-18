@@ -2,8 +2,23 @@
 import React from 'react'
 import { Button, Card, Col, Container, Row } from 'react-bootstrap'
 import './home.scss'
+import { useNavigate } from 'react-router-dom';
+import { useRecoilState } from 'recoil';
+import { tokenState } from '../../recoils/Store';
+import jwt_decode from 'jwt-decode'
 
 const Home = () => {
+  const navigate = useNavigate();
+  const [tokenStateValue, setTokenStateValue] = useRecoilState(tokenState);
+  const token=localStorage.getItem("token");
+  // console.log(token_value)
+  let Roles ="";
+  if(token){
+    var decodeToken=jwt_decode(token);
+     Roles = decodeToken.Roles;
+  }
+  console.log(Roles);
+
   return (
     <div className="home-main-outer-element">
       <Container fluid>
@@ -13,6 +28,7 @@ const Home = () => {
             <h5>Best Quality Products</h5>
             <h1>We Print What You Want!</h1>
             <Button variant="outline-danger mt-4" className="home-button-element">GET STARTED! <i aria-hidden="true" class="fas fa-angle-right"/></Button>
+            {Roles === "admin" && <Button variant="outline-danger mt-4" className="home-button-element" onClick={() => navigate("/admin-form")}>ADMIN PAGE! <i aria-hidden="true" class="fas fa-angle-right"/></Button>}
           </Col>
           <Col xs={6} className="ps-5 home-right-side-element">
             <img src="./images/homePageBoy.png" />

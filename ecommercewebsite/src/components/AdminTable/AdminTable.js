@@ -8,8 +8,12 @@ import { Button } from "react-bootstrap";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 
 const AdminTable = () => {
-  const { mutateAsync: deleteMutateAsync } = useDeleteCard();
+  const token = localStorage.getItem("token");
   const navigate = useNavigate();
+  if(!token){
+    navigate("/");
+  } 
+  const { mutateAsync: deleteMutateAsync } = useDeleteCard();
 
 
   const deleteCard = (row) => {
@@ -18,7 +22,13 @@ const AdminTable = () => {
     deleteMutateAsync(row.card_uuid);
   };
 
-  const { data: cardData } = useGetCard();
+  const { data: cardData, isLoading : isLoadingOccuring } = useGetCard();
+  if(isLoadingOccuring){
+    return (
+    <div class="spinner-border text-dark" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>);
+  }
   const columns = [
     {
       dataField: "image",
@@ -53,7 +63,7 @@ const AdminTable = () => {
         </div>
       ),
     },
-  ];
+  ]; 
   return (
     <>
       <Link to="/admin-form">
@@ -62,7 +72,7 @@ const AdminTable = () => {
 
       <BootstrapTable
         keyField="id"
-        data={cardData}
+        data={cardData ? cardData : []}
         columns={columns}
         striped
         hover

@@ -10,8 +10,12 @@ import { useRecoilState } from 'recoil'
 import { formState } from '../../recoils/Store'
 
 const AdminForm = () => {
-  const [isHeaderPresent, setIsHeaderPresent]= useRecoilState(formState);
+  const token = localStorage.getItem("token");
   const navigate = useNavigate();
+  if(!token){
+    navigate("/");
+  } 
+  const [isHeaderPresent, setIsHeaderPresent]= useRecoilState(formState);
   const{mutateAsync: createCardMutateAsync} = useCreateCard();
   const { mutateAsync: updateCardMutateAsync } = useUpdatedCard();
 

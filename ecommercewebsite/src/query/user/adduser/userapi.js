@@ -32,7 +32,7 @@ export const createCard = async (values) => {
 
 export const getCard = async (values) => {
     try{
-        debugger;
+        // debugger;
         const{ data } = await cardHttp().get("/get/getAllCard");
         return data;
     } catch(error){

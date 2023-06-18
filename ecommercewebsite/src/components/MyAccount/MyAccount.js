@@ -4,8 +4,15 @@ import { NavLink } from "react-router-dom";
 import { useCreateUser, useLoginUser } from "../../query/user/adduser/userquery";
 import { useState } from "react";
 import { Button } from "react-bootstrap";
+import { useRecoilState, useSetRecoilState } from 'recoil';
+import jwt_decode from 'jwt-decode'
+import { tokenState } from '../../recoils/Store';
 
 const MyAccount = () => {
+  const [tokenStateValue, setTokenStateValue] = useRecoilState(tokenState);
+
+  // var token_value = localStorage.getItem('token');
+  // console.log(token_value)
 
     const [registerFormData, setRegisterFormData] = useState({
       "username":"",
@@ -20,19 +27,26 @@ const MyAccount = () => {
 
     const {mutateAsync: createMutateAsync} = useCreateUser()
 
-    const {mutateAsync: loginMutateAsync} = useLoginUser()
+    const {mutateAsync: loginMutateAsync,data} = useLoginUser()
 
     const registerLoginBtn = (e, action) => {
       e.preventDefault()
       if(action==="register"){
-        createMutateAsync(registerFormData)
+        createMutateAsync({...registerFormData,"role_name":"user"})
         setRegisterFormData({
           "username":"",
           "email":"",
           "password":""
         })  }
       else{
-        loginMutateAsync(loginFormData)
+        loginMutateAsync(loginFormData).then((res) => setTokenStateValue(res.token_value));
+        var token_value = localStorage.setItem('token',tokenStateValue);
+        // console.log("data is ", data);
+        // var decodeToken=jwt_decode(token_value);
+        // const {Roles} = decodeToken;
+        // console.log(Roles);
+        // const [tokenStateValue, setTokenStateValue] = useRecoilState(tokenState);
+        // setTokenStateValue(Roles)
         setLoginFormData({
           "username":"",
           "password":""
