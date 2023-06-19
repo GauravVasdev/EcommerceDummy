@@ -1,6 +1,6 @@
 export const config = {
     // BASE_API_URL: "http://localhost:8091/users/",  
-    BASE_API_URL: "http://43.204.112.52:32771/users/",   
+    BASE_API_URL: "http://3.110.51.109:32768/users/",   
     TIMEOUT: 300000, // 5 minutes = 60x5x1000 = 300000
 }
 
